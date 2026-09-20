@@ -24,7 +24,9 @@ embodirun/mark.png
 embodirun/favicon.png
 embodirun/wordmark-source.png
 embodirun/v0.1/multi_robot_serving.mp4
+embodirun/v0.1/multi_robot_serving.jpg
 embodirun/v0.1/engine_e2e_contrast.mp4
+embodirun/v0.1/engine_e2e_contrast.jpg
 ```
 
 | Project | Used by |
@@ -53,6 +55,19 @@ element:
 `preload="metadata"` fetches only the file header, `playsinline` stops iOS from
 forcing fullscreen, and `muted` is required if you ever add `autoplay`. Set an
 explicit `width` so the layout does not shift while the video loads.
+
+Pair every video with a poster frame at the same path and stem, `.jpg` instead
+of `.mp4`, and reference it with `poster=`. Extract it from the published file
+rather than from the source footage, so the poster cannot show a take that was
+cut. A 1280-pixel-wide JPEG at quality 4 is around 100 kB and matches the
+`width="720"` element on a high-density display:
+
+```bash
+ffmpeg -ss 5 -i multi_robot_serving.mp4 -frames:v 1 -q:v 4 multi_robot_serving.jpg
+```
+
+Without a poster the player shows a blank box until the first frame is decoded,
+which on a `preload="metadata"` element is not until the reader presses play.
 
 ## Adding an asset
 
