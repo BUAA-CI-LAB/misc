@@ -23,6 +23,8 @@ embodirun/logo.png
 embodirun/mark.png
 embodirun/favicon.png
 embodirun/wordmark-source.png
+embodirun/microduck_simulation_one_click_demo.mp4
+embodirun/microduck_simulation_one_click_demo.jpg
 embodirun/v0.1/multi_robot_serving.mp4
 embodirun/v0.1/multi_robot_serving.jpg
 embodirun/v0.1/engine_e2e_contrast.mp4
